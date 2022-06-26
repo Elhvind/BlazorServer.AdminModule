@@ -1,5 +1,7 @@
-﻿using Application.Common;
+﻿using Application.Common.Interfaces;
+using Infrastructure.Identity;
 using Infrastructure.Persistence.Migrations;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -25,8 +27,13 @@ public static class ConfigureServices
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
         services
-            .AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            .AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
+
+        services.AddTransient<IDateTime, DateTimeService>();
+        services.AddTransient<IDateTimeOffset, DateTimeOffsetService>();
+        services.AddTransient<IIdentityService, IdentityService>();
 
         return services;
     }

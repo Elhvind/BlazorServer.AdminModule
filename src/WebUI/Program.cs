@@ -3,7 +3,9 @@ using WebUI;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddWebUIServices(builder.Configuration);
+builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddWebUIServices();
 
 var app = builder.Build();
 

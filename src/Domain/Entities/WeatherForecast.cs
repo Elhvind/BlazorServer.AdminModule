@@ -1,4 +1,4 @@
-namespace WebUI.Data;
+namespace Domain.Entities;
 
 public class WeatherForecast
 {

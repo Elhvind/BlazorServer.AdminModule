@@ -2,8 +2,9 @@
 
 <PageTitle>Weather forecast</PageTitle>
 
-@using WebUI.Data
-@inject WeatherForecastService ForecastService
+@using Application.WeatherForecasts;
+@using Domain.Entities
+@inject ISender Mediator
 
 <h1>Weather forecast</h1>
 
@@ -39,10 +40,14 @@ else
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private List<WeatherForecast>? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        var response = await Mediator.Send(new GetWeatherForecastListQuery()
+            {
+                StartDate = DateTime.Now,
+            });
+        forecasts = response?.Forecasts;
     }
 }

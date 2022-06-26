@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "WebUI\WebUI.csproj", "{735D050B-4080-4B2A-8A59-CA7F0C9FB397}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{05136FEF-5F4A-4E48-9316-546CCB1BD341}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3714DE6E-51A7-4065-A82A-A4C79473FC37}"
@@ -16,22 +14,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E7FE8821-8975-4271-A67E-309B9F7D7B85}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "src\WebUI\WebUI.csproj", "{1337C7A3-A074-437D-8AC3-2F0C755E552D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{735D050B-4080-4B2A-8A59-CA7F0C9FB397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{735D050B-4080-4B2A-8A59-CA7F0C9FB397}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{735D050B-4080-4B2A-8A59-CA7F0C9FB397}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{735D050B-4080-4B2A-8A59-CA7F0C9FB397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1337C7A3-A074-437D-8AC3-2F0C755E552D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1337C7A3-A074-437D-8AC3-2F0C755E552D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1337C7A3-A074-437D-8AC3-2F0C755E552D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1337C7A3-A074-437D-8AC3-2F0C755E552D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{735D050B-4080-4B2A-8A59-CA7F0C9FB397} = {05136FEF-5F4A-4E48-9316-546CCB1BD341}
+		{1337C7A3-A074-437D-8AC3-2F0C755E552D} = {05136FEF-5F4A-4E48-9316-546CCB1BD341}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3D10503-FF23-4AA6-8136-F26775E02733}

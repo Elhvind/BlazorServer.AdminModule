@@ -1,3 +1,4 @@
+using Infrastructure.Persistence;
 using WebUI;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,15 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+    app.UseMigrationsEndPoint();
+
+    // Initialise and seed database
+    using (var scope = app.Services.CreateScope())
+    {
+        var initialiser = scope.ServiceProvider.GetRequiredService<ApplicationDbContextInitialiser>();
+        await initialiser.InitialiseAsync();
+        await initialiser.SeedAsync();
+    }
 }
 else
 {
@@ -21,8 +31,8 @@ else
     app.UseHsts();
 }
 
+app.UseHealthChecks("/health");
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
 
 app.UseRouting();

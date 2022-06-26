@@ -1,5 +1,6 @@
 ﻿using Application.Common.Interfaces;
 using Infrastructure.Identity;
+using Infrastructure.Persistence;
 using Infrastructure.Persistence.Migrations;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
@@ -25,6 +26,8 @@ public static class ConfigureServices
         }
 
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
+
+        services.AddScoped<ApplicationDbContextInitialiser>();
 
         services
             .AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)

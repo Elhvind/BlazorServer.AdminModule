@@ -4,7 +4,7 @@
 
 namespace Infrastructure.Persistence.Migrations
 {
-    public partial class IdentityRole : Migration
+    public partial class AddIdentityRole : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

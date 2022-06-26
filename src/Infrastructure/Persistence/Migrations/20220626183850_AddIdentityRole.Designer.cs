@@ -13,7 +13,7 @@ namespace Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20220626183850_IdentityRole")]
-    partial class IdentityRole
+    partial class AddIdentityRole
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

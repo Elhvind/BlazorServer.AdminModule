@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Application.Common.Interfaces;
+using Domain.Entities;
 using Infrastructure.Common;
 using Infrastructure.Identity;
 using Infrastructure.Persistence.Interceptors;
@@ -23,6 +24,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplica
         _mediator = mediator;
         _auditableEntitySaveChangesInterceptor = auditableEntitySaveChangesInterceptor;
     }
+
+    public DbSet<Voucher> Vouchers => Set<Voucher>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

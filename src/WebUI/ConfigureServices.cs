@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using WebUI.Areas.Identity;
 using WebUI.Services;
 
-namespace WebUI;
+namespace Microsoft.Extensions.DependencyInjection;
 
 public static class ConfigureServices
 {

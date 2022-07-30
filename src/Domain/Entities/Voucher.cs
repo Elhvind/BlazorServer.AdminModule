@@ -2,5 +2,26 @@
 
 public class Voucher : BaseAuditableEntity
 {
-    public string Code { get; set; } = null!;
+    private const int LengthOfVoucher = 20;
+
+    private Voucher()
+    {
+        // required by EF
+    }
+
+    public static Voucher NewVoucher()
+    {
+        var random = new Random();
+        var keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890".ToCharArray();
+
+        return new Voucher()
+        {
+            Code = Enumerable
+                .Range(1, LengthOfVoucher)
+                .Select(k => keys[random.Next(0, keys.Length - 1)])
+                .Aggregate("", (e, c) => e + c)
+        };
+    }
+
+    public string Code { get; private set; } = null!;
 }

@@ -1,4 +1,4 @@
-﻿namespace Application.Common.Interfaces;
+﻿namespace ApplicationCore.Common.Interfaces;
 
 /// <inheritdoc cref="DateTime" />
 public interface IDateTime

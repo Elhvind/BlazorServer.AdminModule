@@ -1,4 +1,4 @@
-﻿using Application.Common.Models;
+﻿using ApplicationCore.Common.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Identity;

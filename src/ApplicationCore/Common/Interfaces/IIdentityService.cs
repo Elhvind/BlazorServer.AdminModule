@@ -1,6 +1,6 @@
-﻿using Application.Common.Models;
+﻿using ApplicationCore.Common.Models;
 
-namespace Application.Common.Interfaces;
+namespace ApplicationCore.Common.Interfaces;
 
 public interface IIdentityService
 {

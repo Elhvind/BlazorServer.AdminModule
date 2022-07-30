@@ -1,3 +1,4 @@
+using ApplicationCore;
 using Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using Application.Common.Interfaces;
+using ApplicationCore.Common.Interfaces;
 using Domain.Entities;
 using Infrastructure.Common;
 using Infrastructure.Identity;

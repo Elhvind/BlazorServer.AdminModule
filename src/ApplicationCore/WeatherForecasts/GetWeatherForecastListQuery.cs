@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using MediatR;
 
-namespace Application.WeatherForecasts;
+namespace ApplicationCore.WeatherForecasts;
 
 public class GetWeatherForecastListQueryResponse
 {

@@ -1,4 +1,4 @@
-﻿using Application.Common.Interfaces;
+﻿using ApplicationCore.Common.Interfaces;
 using Infrastructure.Identity;
 using Infrastructure.Persistence.Migrations;
 using Microsoft.AspNetCore.Components.Authorization;

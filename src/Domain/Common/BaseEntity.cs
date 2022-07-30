@@ -4,7 +4,7 @@ namespace Domain.Common;
 
 public abstract class BaseEntity
 {
-    public int Id { get; set; }
+    public virtual int Id { get; protected set; }
 
     private readonly List<BaseEvent> _domainEvents = new();
 

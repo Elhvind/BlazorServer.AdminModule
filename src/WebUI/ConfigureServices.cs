@@ -1,7 +1,7 @@
 ﻿using Application.Common.Interfaces;
+using Infrastructure.Identity;
 using Infrastructure.Persistence.Migrations;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Identity;
 using WebUI.Areas.Identity;
 using WebUI.Services;
 
@@ -25,7 +25,7 @@ public static class ConfigureServices
 
         services.AddServerSideBlazor();
 
-        services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
+        services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<ApplicationUser>>();
 
         return services;
     }

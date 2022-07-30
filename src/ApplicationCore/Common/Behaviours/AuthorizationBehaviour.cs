@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using Application.Common.Exceptions;
+using ApplicationCore.Common.Exceptions;
 using ApplicationCore.Common.Interfaces;
 using ApplicationCore.Common.Security;
 using MediatR;

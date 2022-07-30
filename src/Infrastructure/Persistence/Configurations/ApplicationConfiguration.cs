@@ -8,5 +8,7 @@ public class ApplicationConfiguration : IEntityTypeConfiguration<Application>
 {
     public void Configure(EntityTypeBuilder<Application> builder)
     {
+        builder.Property(t => t.Name)
+            .IsRequired();
     }
 }

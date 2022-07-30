@@ -39,7 +39,7 @@ To use `dotnet-ef` for your migrations please add the following flags to your co
 
 For example, to add a new migration from the root folder:
 
- `dotnet ef migrations add "SampleMigration" --project Infrastructure --startup-project WebUI --output-dir Persistence\Migrations`
+ `dotnet ef migrations add "SampleMigration" --project src\Infrastructure --startup-project src\WebUI --output-dir Persistence\Migrations`
 
 ## Overview
 
@@ -61,4 +61,4 @@ This layer is a single page application based on VueJS 2.6 and ASP.NET Core 5. T
 
 ## License
 
-This project is licensed with the [MIT license](LICENSE).
+This project is licensed with the MIT license.

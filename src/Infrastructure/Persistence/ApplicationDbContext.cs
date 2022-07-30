@@ -25,6 +25,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplica
         _auditableEntitySaveChangesInterceptor = auditableEntitySaveChangesInterceptor;
     }
 
+    public DbSet<Application> Applications => Set<Application>();
+
     public DbSet<Voucher> Vouchers => Set<Voucher>();
 
     protected override void OnModelCreating(ModelBuilder builder)

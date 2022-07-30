@@ -5,6 +5,7 @@ namespace ApplicationCore.Common.Interfaces;
 
 public interface IApplicationDbContext
 {
+    DbSet<Application> Applications { get; }
     DbSet<Voucher> Vouchers { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);

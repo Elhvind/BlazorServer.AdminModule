@@ -24,4 +24,11 @@ public class Voucher : BaseAuditableEntity
     }
 
     public string Code { get; private set; } = null!;
+
+    public string UserGuid { get; private set; } = null!;
+
+    public void AssignToUser(string userGuid)
+    {
+        UserGuid = userGuid;
+    }
 }

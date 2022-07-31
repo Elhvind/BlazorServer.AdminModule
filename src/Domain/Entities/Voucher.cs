@@ -25,10 +25,18 @@ public class Voucher : BaseAuditableEntity
 
     public string Code { get; private set; } = null!;
 
-    public string UserGuid { get; private set; } = null!;
+    public string? UserGuid { get; private set; }
 
     public void AssignToUser(string userGuid)
     {
+        if (string.IsNullOrEmpty(userGuid))
+            throw new ArgumentException("Argument must not be empty", nameof(userGuid));
+
         UserGuid = userGuid;
+    }
+
+    public void UnassignFromUser()
+    {
+        UserGuid = null;
     }
 }

@@ -1,5 +1,4 @@
 ﻿using ApplicationCore.Common.Models;
-using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 

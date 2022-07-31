@@ -1,0 +1,49 @@
+﻿@page "/vouchers"
+@using ApplicationCore.Vouchers
+
+<h1>Vouchers</h1>
+
+<button @onclick=CreateVoucher>Create new voucher</button>
+
+@if (voucherReponse == null || !voucherReponse.Vouchers.Items.Any())
+{
+    <div>Did not find any vouchers.</div>
+}
+else
+{
+    foreach (var voucher in voucherReponse.Vouchers.Items)
+    {
+        <div>#@voucher.Id - @voucher.Code</div>
+    }
+
+}
+
+@code {
+    [Inject]
+    public ISender Mediator { get; set; } = null!;
+
+    private int pageNumber = 1;
+    private int pageSize = 10;
+
+    private GetVouchersWithPaginationQueryResponse? voucherReponse;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await GetVouchers();
+    }
+
+    private async Task GetVouchers()
+    {
+        var query = new GetVouchersWithPaginationQuery()
+            {
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+            };
+        voucherReponse = await Mediator.Send(query);
+    }
+
+    private async Task<int> CreateVoucher()
+    {
+        return await Mediator.Send(new CreateVoucherCommand());
+    }
+}

@@ -3,7 +3,7 @@
 
 <h1>Vouchers</h1>
 
-<button @onclick=CreateVoucher>Create new voucher</button>
+<button class="btn btn-primary" @onclick=CreateVoucher>Create new voucher</button>
 
 @if (voucherReponse == null || !voucherReponse.Vouchers.Items.Any())
 {
@@ -15,7 +15,6 @@ else
     {
         <div>#@voucher.Id - @voucher.Code</div>
     }
-
 }
 
 @code {
@@ -44,6 +43,8 @@ else
 
     private async Task<int> CreateVoucher()
     {
-        return await Mediator.Send(new CreateVoucherCommand());
+        var voucherId = await Mediator.Send(new CreateVoucherCommand());
+        await GetVouchers();
+        return voucherId;
     }
 }

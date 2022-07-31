@@ -51,7 +51,7 @@ public class GetVouchersWithPaginationQueryHandler : IRequestHandler<GetVouchers
     public async Task<GetVouchersWithPaginationQueryResponse> Handle(GetVouchersWithPaginationQuery request, CancellationToken cancellationToken)
     {
         var vouchers = await _context.Vouchers
-            .OrderBy(x => x.Created)
+            .OrderByDescending(x => x.Created)
             .ProjectTo<VoucherDTO>(_mapper.ConfigurationProvider)
             .PaginatedListAsync(request.PageNumber, request.PageSize);
 

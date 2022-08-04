@@ -1,21 +1,47 @@
 ﻿@page "/vouchers"
 @using ApplicationCore.Vouchers
 
-<h1>Vouchers</h1>
+<div class="row mb-4">
+    <div class="col">
+        <h1>Vouchers</h1>
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-primary" @onclick=CreateVoucher>Create new voucher</button>
+    </div>
+</div>
 
-<button class="btn btn-primary" @onclick=CreateVoucher>Create new voucher</button>
+<TableTemplate Items="voucherReponse?.Vouchers.Items" Context="voucher" Busy="fetchingVouchers">
+    <TableHeader>
+        <th>ID</th>
+        <th>Code</th>
+    </TableHeader>
+    <RowTemplate>
+        <td>@voucher.Id</td>
+        <td>@voucher.Code</td>
+    </RowTemplate>
+    <BusyTemplate>
+        <td colspan="2">
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="spinner-border" role="status"></div><span class="d-inline-block ms-3">Loading...</span>
+            </div>
+        </td>
+    </BusyTemplate>
+    <EmptyTemplate>
+        <td colspan="2">
+            <div class="alert alert-warning">Did not find any vouchers.</div>
+        </td>
+    </EmptyTemplate>
+</TableTemplate>
 
-@if (voucherReponse == null || !voucherReponse.Vouchers.Items.Any())
-{
-    <div>Did not find any vouchers.</div>
-}
-else
-{
-    foreach (var voucher in voucherReponse.Vouchers.Items)
-    {
-        <div>#@voucher.Id - @voucher.Code</div>
-    }
-}
+<nav aria-label="Voucher navigation">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" @onclick=PreviousPage @onclick:preventDefault="true" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</nav>
 
 @code {
     [Inject]
@@ -25,6 +51,7 @@ else
     private int pageSize = 10;
 
     private GetVouchersWithPaginationQueryResponse? voucherReponse;
+    private bool fetchingVouchers = true;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -33,12 +60,22 @@ else
 
     private async Task GetVouchers()
     {
+        fetchingVouchers = true;
         var query = new GetVouchersWithPaginationQuery()
             {
                 PageNumber = pageNumber,
                 PageSize = pageSize,
             };
         voucherReponse = await Mediator.Send(query);
+        fetchingVouchers = false;
+    }
+
+    private async Task PreviousPage()
+    {
+    }
+
+    private async Task NextPage()
+    {
     }
 
     private async Task<int> CreateVoucher()

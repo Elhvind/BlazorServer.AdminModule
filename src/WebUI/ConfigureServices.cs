@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Common.Interfaces;
+using BlazorStrap;
 using Infrastructure.Identity;
 using Infrastructure.Persistence.Migrations;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -12,6 +13,8 @@ public static class ConfigureServices
     public static IServiceCollection AddWebUIServices(this IServiceCollection services)
     {
         services.AddDatabaseDeveloperPageExceptionFilter();
+
+        services.AddBlazorStrap();
 
         services.AddSingleton<ICurrentUserService, CurrentUserService>();
 

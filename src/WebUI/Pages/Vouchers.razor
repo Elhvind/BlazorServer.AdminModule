@@ -1,47 +1,47 @@
 ﻿@page "/vouchers"
 @using ApplicationCore.Vouchers
 
-<div class="row mb-4">
-    <div class="col">
+<BSRow class="mb-4">
+    <BSCol>
         <h1>Vouchers</h1>
-    </div>
-    <div class="col-auto">
-        <button class="btn btn-primary" @onclick=CreateVoucher>Create new voucher</button>
-    </div>
-</div>
+    </BSCol>
+    <BSCol Auto="true">
+        <BSButton Color="BSColor.Primary" OnClick="CreateVoucher">Create new voucher</BSButton>
+    </BSCol>
+</BSRow>
 
-<TableTemplate Items="voucherReponse?.Vouchers.Items" Context="voucher" Busy="fetchingVouchers">
-    <TableHeader>
-        <th>ID</th>
-        <th>Code</th>
-    </TableHeader>
-    <RowTemplate>
-        <td>@voucher.Id</td>
-        <td>@voucher.Code</td>
-    </RowTemplate>
-    <BusyTemplate>
-        <td colspan="2">
-            <div class="d-flex align-items-center justify-content-center">
-                <div class="spinner-border" role="status"></div><span class="d-inline-block ms-3">Loading...</span>
-            </div>
-        </td>
-    </BusyTemplate>
-    <EmptyTemplate>
-        <td colspan="2">
-            <div class="alert alert-warning">Did not find any vouchers.</div>
-        </td>
-    </EmptyTemplate>
-</TableTemplate>
+<div>@pageNumber</div>
 
-<nav aria-label="Voucher navigation">
-    <ul class="pagination">
-        <li class="page-item"><a class="page-link" @onclick=PreviousPage @onclick:preventDefault="true" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-</nav>
+<BSTable>
+    <BSTHead>
+        <BSTR>
+            <BSTD>ID</BSTD>
+            <BSTD>Code</BSTD>
+        </BSTR>
+    </BSTHead>
+    <BSTBody>
+        @if (voucherReponse?.Vouchers.Items == null)
+        {
+            <BSTR>
+                <BSTD colspan="2">
+                    <BSAlert Color="BSColor.Warning">Did not find any vouchers.</BSAlert>
+                </BSTD>
+            </BSTR>
+        }
+        else
+        {
+            @foreach (var voucher in voucherReponse.Vouchers.Items)
+            {
+                <BSTR>
+                    <BSTD>@voucher.Id</BSTD>
+                    <BSTD>@voucher.Code</BSTD>
+                </BSTR>
+            }
+        }
+    </BSTBody>
+</BSTable>
+
+<BSPagination Pages="totalPages" Value="pageNumber" ValueChanged="GetVouchers" />
 
 @code {
     [Inject]
@@ -49,17 +49,19 @@
 
     private int pageNumber = 1;
     private int pageSize = 10;
+    private int totalPages => voucherReponse?.Vouchers.TotalPages ?? 0;
 
     private GetVouchersWithPaginationQueryResponse? voucherReponse;
     private bool fetchingVouchers = true;
 
     protected override async Task OnParametersSetAsync()
     {
-        await GetVouchers();
+        await GetVouchers(pageNumber);
     }
 
-    private async Task GetVouchers()
+    private async Task GetVouchers(int page)
     {
+        pageNumber = page;
         fetchingVouchers = true;
         var query = new GetVouchersWithPaginationQuery()
             {
@@ -70,18 +72,10 @@
         fetchingVouchers = false;
     }
 
-    private async Task PreviousPage()
-    {
-    }
-
-    private async Task NextPage()
-    {
-    }
-
     private async Task<int> CreateVoucher()
     {
         var voucherId = await Mediator.Send(new CreateVoucherCommand());
-        await GetVouchers();
+        await GetVouchers(pageNumber);
         return voucherId;
     }
 }

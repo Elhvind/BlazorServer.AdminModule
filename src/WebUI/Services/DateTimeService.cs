@@ -1,4 +1,4 @@
-﻿using SharedKernel.Interfaces;
+﻿using Shared.Domain.Interfaces;
 
 namespace WebUI.Services;
 

@@ -1,3 +1,3 @@
 global using FluentAssertions;
-global using SharedKernel;
+global using Shared.Domain;
 global using Xunit;

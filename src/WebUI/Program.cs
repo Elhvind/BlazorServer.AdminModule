@@ -1,11 +1,11 @@
-using ApplicationCore;
-using Infrastructure.Persistence;
+//using ApplicationCore;
+//using Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddApplicationServices();
-builder.Services.AddInfrastructureServices(builder.Configuration);
+//builder.Services.AddApplicationServices();
+//builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddWebUIServices();
 
 var app = builder.Build();
@@ -17,12 +17,12 @@ if (app.Environment.IsDevelopment())
     app.UseMigrationsEndPoint();
 
     // Initialise and seed database
-    using (var scope = app.Services.CreateScope())
-    {
-        var initialiser = scope.ServiceProvider.GetRequiredService<ApplicationDbContextInitialiser>();
-        await initialiser.InitialiseAsync();
-        await initialiser.SeedAsync();
-    }
+    //using (var scope = app.Services.CreateScope())
+    //{
+    //    var initialiser = scope.ServiceProvider.GetRequiredService<ApplicationDbContextInitialiser>();
+    //    await initialiser.InitialiseAsync();
+    //    await initialiser.SeedAsync();
+    //}
 }
 else
 {
@@ -41,6 +41,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapRazorPages();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 

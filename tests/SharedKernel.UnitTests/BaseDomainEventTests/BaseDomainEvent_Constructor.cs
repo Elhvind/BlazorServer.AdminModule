@@ -1,4 +1,4 @@
-﻿namespace PluralsightDdd.SharedKernel.UnitTests.BaseDomainEventTests;
+﻿namespace Shared.Domain.UnitTests.BaseDomainEventTests;
 
 public class BaseDomainEvent_Constructor
 {

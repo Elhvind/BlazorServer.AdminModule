@@ -19,7 +19,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SharedKernel\SharedKernel.csproj" />
+      <ProjectReference Include="..\Modules\Catalog\Application\Catalog.Application.csproj" />
+      <ProjectReference Include="..\Modules\Catalog\Infrastructure\Catalog.Infrastructure.csproj" />
+      <ProjectReference Include="..\Modules\Identity\Identity.Application\Identity.Application.csproj" />
+      <ProjectReference Include="..\Modules\Identity\Identity.Infrastructure\Identity.Infrastructure.csproj" />
+      <ProjectReference Include="..\Shared\Domain\Shared.Domain.csproj" />
     </ItemGroup>
 
 </Project>

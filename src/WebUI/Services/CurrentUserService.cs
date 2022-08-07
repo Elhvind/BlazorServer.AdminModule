@@ -1,5 +1,5 @@
 ﻿using System.Security.Claims;
-using SharedKernel.Interfaces;
+using Shared.Application.Interfaces;
 
 namespace WebUI.Services;
 

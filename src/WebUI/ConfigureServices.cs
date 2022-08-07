@@ -1,5 +1,6 @@
 ﻿using BlazorStrap;
-using SharedKernel.Interfaces;
+using Shared.Application.Interfaces;
+using Shared.Domain.Interfaces;
 using WebUI.Services;
 
 namespace Microsoft.Extensions.DependencyInjection;

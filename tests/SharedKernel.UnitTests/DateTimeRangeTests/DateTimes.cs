@@ -1,4 +1,4 @@
-﻿namespace SharedKernel.UnitTests.DateTimeRangeTests;
+﻿namespace Shared.Domain.UnitTests.DateTimeRangeTests;
 
 public static class DateTimes
 {

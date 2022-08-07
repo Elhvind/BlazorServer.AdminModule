@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace ApplicationCore.Common.Models;
+namespace Catalog.Core.Models;
 
 public class PaginatedList<T>
 {

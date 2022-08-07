@@ -1,8 +1,9 @@
-﻿using ApplicationCore.Common.Models;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Catalog.Core.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApplicationCore.Common.Mappings;
+namespace Catalog.Core.Extensions;
 
 public static class MappingExtensions
 {

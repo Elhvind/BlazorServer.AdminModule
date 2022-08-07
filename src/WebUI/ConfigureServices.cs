@@ -1,9 +1,5 @@
 ﻿using BlazorStrap;
-using Infrastructure.Identity;
-using Infrastructure.Persistence;
-using Microsoft.AspNetCore.Components.Authorization;
 using SharedKernel.Interfaces;
-using WebUI.Areas.Identity;
 using WebUI.Services;
 
 namespace Microsoft.Extensions.DependencyInjection;
@@ -21,14 +17,16 @@ public static class ConfigureServices
         services.AddHttpContextAccessor();
 
         services
-            .AddHealthChecks()
-            .AddDbContextCheck<ApplicationDbContext>();
+            .AddHealthChecks();
 
         services.AddRazorPages();
 
         services.AddServerSideBlazor();
 
-        services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<ApplicationUser>>();
+        //services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<ApplicationUser>>();
+
+        services.AddTransient<IDateTime, DateTimeService>();
+        services.AddTransient<IDateTimeOffset, DateTimeOffsetService>();
 
         return services;
     }

@@ -1,6 +1,6 @@
 ﻿using SharedKernel.Interfaces;
 
-namespace Infrastructure.Services;
+namespace WebUI.Services;
 
 public class DateTimeOffsetService : IDateTimeOffset
 {

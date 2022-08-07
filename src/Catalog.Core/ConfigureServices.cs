@@ -1,13 +1,14 @@
 ﻿using System.Reflection;
 using FluentValidation;
 using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using SharedKernel.Behaviours;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
 public static class ConfigureServices
 {
-    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+    public static IServiceCollection AddCatalogServices(this IServiceCollection services)
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());

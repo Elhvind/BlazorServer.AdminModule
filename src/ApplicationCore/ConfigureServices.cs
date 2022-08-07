@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
-using ApplicationCore.Common.Behaviours;
 using FluentValidation;
 using MediatR;
+using SharedKernel.Behaviours;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

@@ -1,5 +1,5 @@
-﻿using ApplicationCore.Common.Models;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using SharedKernel;
 
 namespace Infrastructure.Identity;
 

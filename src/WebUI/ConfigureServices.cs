@@ -1,8 +1,8 @@
-﻿using ApplicationCore.Common.Interfaces;
-using BlazorStrap;
+﻿using BlazorStrap;
 using Infrastructure.Identity;
-using Infrastructure.Persistence.Migrations;
+using Infrastructure.Persistence;
 using Microsoft.AspNetCore.Components.Authorization;
+using SharedKernel.Interfaces;
 using WebUI.Areas.Identity;
 using WebUI.Services;
 

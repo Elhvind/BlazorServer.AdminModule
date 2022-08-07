@@ -1,8 +1,8 @@
-﻿using ApplicationCore.Common.Interfaces;
-using ApplicationCore.Common.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using SharedKernel;
+using SharedKernel.Interfaces;
 
 namespace Infrastructure.Identity;
 

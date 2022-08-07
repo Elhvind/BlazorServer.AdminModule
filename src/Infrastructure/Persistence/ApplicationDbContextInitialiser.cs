@@ -1,5 +1,4 @@
 ﻿using Infrastructure.Identity;
-using Infrastructure.Persistence.Migrations;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

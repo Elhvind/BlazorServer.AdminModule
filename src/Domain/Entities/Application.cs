@@ -1,6 +1,6 @@
 ﻿namespace Domain.Entities;
 
-public class Application : BaseEntity
+public class Application : BaseDomainEntity
 {
     private Application()
     {

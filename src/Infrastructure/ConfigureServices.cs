@@ -2,11 +2,11 @@
 using Infrastructure.Identity;
 using Infrastructure.Persistence;
 using Infrastructure.Persistence.Interceptors;
-using Infrastructure.Persistence.Migrations;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using SharedKernel.Interfaces;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

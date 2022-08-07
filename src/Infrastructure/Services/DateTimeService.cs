@@ -1,4 +1,4 @@
-﻿using ApplicationCore.Common.Interfaces;
+﻿using SharedKernel.Interfaces;
 
 namespace Infrastructure.Services;
 

@@ -1,4 +1,4 @@
-﻿using Shared.Domain.Interfaces;
+﻿using Shared.Application.Interfaces;
 
 namespace WebUI.Services;
 

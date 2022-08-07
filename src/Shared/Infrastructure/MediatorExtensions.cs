@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Shared.Domain;
 
-namespace Inventory.Infrastructure.Common;
+namespace Shared.Infrastructure;
 
 public static class MediatorExtensions
 {
